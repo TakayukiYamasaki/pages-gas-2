@@ -1,4 +1,4 @@
-const apiUrl = 'https://script.google.com/macros/s/xxxxxxxxxx/exec'; // GAS WebアプリURL
+const apiUrl = 'https://script.google.com/macros/s/AKfycbwZwHNurlxqeOF-aRcSMcUvmOOBrmpMcmN8YQONsCVnEr2oCt764tRlMCjCMTiMKrs/exec'; // GAS WebアプリURL
 
 const createBtn = document.getElementById('createBtn');
 const reloadBtn = document.getElementById('reloadBtn');
