@@ -3,73 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAS + Google Sheets CRUD</title>
+<title>Google Sheets + GAS CRUD</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-  <div class="container">
-    <h1>GAS + Google Sheets CRUD</h1>
-    <div class="help">GAS ウェブアプリ URL を入力してください。</div>
-  </div>
-</header>
+  <header>
+    <h1>Google Sheets + GAS CRUD</h1>
+  </header>
 
-<div class="container grid grid-2">
-  <section class="card">
-    <h2>接続設定</h2>
-    <input id="apiUrl" placeholder="GASウェブアプリURL">
-    <div class="btns">
-      <button id="saveUrlBtn">保存</button>
-      <button id="testBtn">接続テスト</button>
-      <span id="statusText" class="help"></span>
-    </div>
+  <section>
+    <h2>API URL 設定</h2>
+    <input id="apiUrl" placeholder="GAS の WebアプリURL">
+    <button id="saveUrlBtn">保存</button>
+    <button id="testBtn">接続テスト</button>
+    <span id="statusText"></span>
   </section>
 
-  <section class="card">
-    <h2>新規作成</h2>
-    <input id="name" placeholder="名前">
-    <input id="email" placeholder="メール">
+  <section>
+    <h2>Create</h2>
+    <input id="name" placeholder="name">
+    <input id="email" placeholder="email">
     <input id="date" type="datetime-local">
     <input id="userImage" type="file" accept="image/*">
-    <div class="btns">
-      <button id="createBtn">追加</button>
-      <span id="createMsg" class="help"></span>
-    </div>
+    <button id="createBtn">追加</button>
+    <div id="createMsg"></div>
   </section>
 
-  <section class="card">
-    <h2>更新</h2>
-    <input id="uid" placeholder="ID">
-    <input id="uname" placeholder="名前">
-    <input id="uemail" placeholder="メール">
+  <section>
+    <h2>Update</h2>
+    <input id="uid" placeholder="id">
+    <input id="uname" placeholder="name">
+    <input id="uemail" placeholder="email">
     <input id="udate" type="datetime-local">
     <input id="uimage" type="file" accept="image/*">
-    <div class="btns">
-      <button id="updateBtn">更新</button>
-      <span id="updateMsg" class="help"></span>
-    </div>
+    <button id="updateBtn">更新</button>
+    <div id="updateMsg"></div>
   </section>
 
-  <section class="card">
-    <h2>削除</h2>
-    <input id="did" placeholder="ID">
-    <div class="btns">
-      <button id="deleteBtn">削除</button>
-      <span id="deleteMsg" class="help"></span>
-    </div>
+  <section>
+    <h2>Delete</h2>
+    <input id="did" placeholder="id">
+    <button id="deleteBtn">削除</button>
+    <div id="deleteMsg"></div>
   </section>
 
-  <section class="card" style="grid-column:1/-1;">
-    <h2>一覧 <span id="count" class="pill">0件</span></h2>
+  <section>
+    <h2>一覧</h2>
     <button id="reloadBtn">再読み込み</button>
     <table id="table">
       <thead>
-        <tr><th>ID</th><th>名前</th><th>メール</th><th>日付</th><th>画像</th></tr>
+        <tr><th>id</th><th>name</th><th>email</th><th>date</th><th>画像</th></tr>
       </thead>
       <tbody></tbody>
     </table>
   </section>
-</div>
 
 <script src="main.js"></script>
 </body>
