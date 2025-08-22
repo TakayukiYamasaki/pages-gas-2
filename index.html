@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Sheets + GAS CRUD</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Google Sheets + GAS CRUD</h1>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>新規作成（Create）</h2>
+      <label for="name">名前</label>
+      <input id="name" placeholder="山田太郎" />
+      <label for="email">メール</label>
+      <input id="email" placeholder="taro@example.com" />
+      <label for="date">日付</label>
+      <input id="date" type="datetime-local" />
+      <label for="userImage">画像</label>
+      <input id="userImage" type="file" accept="image/*" />
+      <button id="createBtn">追加</button>
+      <div id="createMsg" class="help"></div>
+    </section>
+
+    <section class="card">
+      <h2>一覧（Read）</h2>
+      <button id="reloadBtn">再読み込み</button>
+      <span id="count">0件</span>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>date</th>
+            <th>画像</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
