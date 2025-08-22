@@ -1,50 +1,76 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Sheets + GAS CRUD</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAS + Google Sheets CRUD</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Google Sheets + GAS CRUD</h1>
-  </header>
+<header>
+  <div class="container">
+    <h1>GAS + Google Sheets CRUD</h1>
+    <div class="help">GAS ウェブアプリ URL を入力してください。</div>
+  </div>
+</header>
 
-  <main class="container">
-    <section class="card">
-      <h2>新規作成（Create）</h2>
-      <label for="name">名前</label>
-      <input id="name" placeholder="山田太郎" />
-      <label for="email">メール</label>
-      <input id="email" placeholder="taro@example.com" />
-      <label for="date">日付</label>
-      <input id="date" type="datetime-local" />
-      <label for="userImage">画像</label>
-      <input id="userImage" type="file" accept="image/*" />
+<div class="container grid grid-2">
+  <section class="card">
+    <h2>接続設定</h2>
+    <input id="apiUrl" placeholder="GASウェブアプリURL">
+    <div class="btns">
+      <button id="saveUrlBtn">保存</button>
+      <button id="testBtn">接続テスト</button>
+      <span id="statusText" class="help"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>新規作成</h2>
+    <input id="name" placeholder="名前">
+    <input id="email" placeholder="メール">
+    <input id="date" type="datetime-local">
+    <input id="userImage" type="file" accept="image/*">
+    <div class="btns">
       <button id="createBtn">追加</button>
-      <div id="createMsg" class="help"></div>
-    </section>
+      <span id="createMsg" class="help"></span>
+    </div>
+  </section>
 
-    <section class="card">
-      <h2>一覧（Read）</h2>
-      <button id="reloadBtn">再読み込み</button>
-      <span id="count">0件</span>
-      <table id="table">
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>email</th>
-            <th>date</th>
-            <th>画像</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  </main>
+  <section class="card">
+    <h2>更新</h2>
+    <input id="uid" placeholder="ID">
+    <input id="uname" placeholder="名前">
+    <input id="uemail" placeholder="メール">
+    <input id="udate" type="datetime-local">
+    <input id="uimage" type="file" accept="image/*">
+    <div class="btns">
+      <button id="updateBtn">更新</button>
+      <span id="updateMsg" class="help"></span>
+    </div>
+  </section>
 
-  <script src="main.js"></script>
+  <section class="card">
+    <h2>削除</h2>
+    <input id="did" placeholder="ID">
+    <div class="btns">
+      <button id="deleteBtn">削除</button>
+      <span id="deleteMsg" class="help"></span>
+    </div>
+  </section>
+
+  <section class="card" style="grid-column:1/-1;">
+    <h2>一覧 <span id="count" class="pill">0件</span></h2>
+    <button id="reloadBtn">再読み込み</button>
+    <table id="table">
+      <thead>
+        <tr><th>ID</th><th>名前</th><th>メール</th><th>日付</th><th>画像</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
